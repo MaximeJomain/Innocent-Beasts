@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -12,6 +13,8 @@ public class AnimalController : MonoBehaviour
     [HideInInspector] public Animator animator;
     public Sprite interactionSprite;
     public float spriteSpeed = 1f;
+    [CanBeNull]
+    public ParticleSystem particle;
 
     private SpriteRenderer spriteRenderer;
     private Sprite baseSprite;
@@ -40,6 +43,11 @@ public class AnimalController : MonoBehaviour
     private IEnumerator InteractionCoroutine()
     {
         spriteRenderer.sprite = interactionSprite;
+
+        if (particle)
+        {
+            particle.Play();
+        }
         yield return new WaitForSeconds(spriteSpeed);
         spriteRenderer.sprite = baseSprite;
         yield return null;

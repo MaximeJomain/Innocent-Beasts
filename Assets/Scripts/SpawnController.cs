@@ -5,16 +5,20 @@ using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 using DG.Tweening;
+using UnityEngine.Serialization;
 
 public class SpawnController : MonoBehaviour
 {
     public float maxSpawnTime = 5f;
     public float minSpawnTime = 1f;
-    public float difficultyRate = 5f;
+    [FormerlySerializedAs("difficultyRate")]
+    public float difficultyDuration = 5f;
+    public float scaleDecreaseRate = 1f;
     public GameObject[] spawnPointList;
     public AnimalController[] animalList;
 
     private float spawnTime;
+    private float scaleRate = 1f;
 
     private void Start()
     {
@@ -24,11 +28,12 @@ public class SpawnController : MonoBehaviour
 
     private void Update()
     {
-        DOTween.To(() => spawnTime, x => spawnTime = x, minSpawnTime, difficultyRate)
+        DOTween.To(() => spawnTime, x => spawnTime = x, minSpawnTime, difficultyDuration)
             .SetEase(Ease.OutSine);
         // .OnUpdate(() => Debug.Log("spawnTime" + spawnTime));
 
-        // spawnTime = Mathf.Lerp(spawnTime, minSpawnTime, difficultyRate/1000 * Time.deltaTime);
+        scaleRate = Mathf.Lerp(scaleRate, 0f, Time.deltaTime * (scaleDecreaseRate / 1000f));
+        Debug.Log("scaleRAte" + scaleRate);
     }
 
     private IEnumerator spawnCoroutine()
@@ -55,6 +60,8 @@ public class SpawnController : MonoBehaviour
         var newPointsList = newPoints.ToList();
 
         var instance = Instantiate(animalList[randAnimal], spawnPointList[randPoint].transform.position, Quaternion.identity);
+        instance.gameObject.transform.localScale = new Vector3(scaleRate, scaleRate, scaleRate);
+        
         var randPoint2 = Random.Range(0, newPoints.Count);
 
         instance.targetPosition = newPointsList[randPoint2].transform.position;

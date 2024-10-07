@@ -17,12 +17,14 @@ public class AnimalController : MonoBehaviour
     public bool isEnemy;
     public float attackRate = 1.5f;
     public int attackDamage = 1, healValue = 1;
+    public AudioClip bounceAudio;
 
     private SpriteRenderer spriteRenderer;
     private Sprite baseSprite;
     private bool canInteract = true;
 
     private GameManager gameManager;
+    private AudioSource audioSource;
 
     public void PlayInteraction()
     {
@@ -36,11 +38,22 @@ public class AnimalController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         baseSprite = spriteRenderer.sprite;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
     {
+        StartCoroutine(BounceCoroutine());
         if (isEnemy) StartCoroutine(EnemyCoroutine());
+    }
+
+    private IEnumerator BounceCoroutine()
+    {
+        audioSource.clip = bounceAudio;
+        audioSource.Play();
+        yield return new WaitForSeconds(1f);
+        StartCoroutine(BounceCoroutine());
+        yield return null;
     }
 
     private void Update()
@@ -79,7 +92,6 @@ public class AnimalController : MonoBehaviour
     private IEnumerator EnemyCoroutine()
     {
         yield return new WaitForSeconds(attackRate);
-        Debug.Log("ENNEMY ATTACK");
         spriteRenderer.sprite = interactionSprite;
         gameManager.ChangeHealth(-attackDamage);
         yield return new WaitForSeconds(0.5f);

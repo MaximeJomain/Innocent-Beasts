@@ -25,7 +25,6 @@ public class GameManager : MonoBehaviour
         health += value;
         health = Math.Clamp(health, 0, baseHealth);
         healthSlider.value = health;
-        Debug.Log("HEALTH " + health);
     }
 
     private void Awake()

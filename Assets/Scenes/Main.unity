@@ -1176,7 +1176,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &586242510
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1960,7 +1960,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseHealth: 100
   heal: 3
-  damage: 50
+  damage: 3
   cursor: {fileID: 725002726}
   healthSlider: {fileID: 1654459212}
   gameOver: {fileID: 586242509}

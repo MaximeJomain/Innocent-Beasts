@@ -53,6 +53,10 @@ MonoBehaviour:
   interactionSprite: {fileID: 1150027250, guid: 18bfca351f2b23b4db42f66641dec6b6, type: 3}
   spriteSpeed: 1
   particle: {fileID: 8718241190200175992}
+  isEnemy: 0
+  attackRate: 1.5
+  attackDamage: 1
+  healValue: 3
 --- !u!61 &-8358435268634177326
 BoxCollider2D:
   m_ObjectHideFlags: 0

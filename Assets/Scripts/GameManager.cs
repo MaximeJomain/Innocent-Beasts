@@ -2,13 +2,23 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
+    public int baseHealth = 100;
     public GameObject cursor;
+    public Slider healthSlider;
+    private int health;
     
     private Camera cam;
     private Animator cursorAnimator;
+
+    public void ChangeHealth(int value)
+    {
+        health += value;
+        healthSlider.value = health;
+    }
 
     private void Awake()
     {
@@ -18,6 +28,8 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         cam = Camera.main;
+        healthSlider.value = baseHealth;
+        health = baseHealth;
     }
 
     private void Update()

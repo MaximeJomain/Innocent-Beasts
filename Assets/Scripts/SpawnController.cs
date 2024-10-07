@@ -11,7 +11,6 @@ public class SpawnController : MonoBehaviour
 {
     public float maxSpawnTime = 5f;
     public float minSpawnTime = 1f;
-    [FormerlySerializedAs("difficultyRate")]
     public float difficultyDuration = 5f;
     public float scaleDecreaseRate = 1f;
     public GameObject[] spawnPointList;
@@ -33,7 +32,6 @@ public class SpawnController : MonoBehaviour
         // .OnUpdate(() => Debug.Log("spawnTime" + spawnTime));
 
         scaleRate = Mathf.Lerp(scaleRate, 0f, Time.deltaTime * (scaleDecreaseRate / 1000f));
-        Debug.Log("scaleRAte" + scaleRate);
     }
 
     private IEnumerator spawnCoroutine()

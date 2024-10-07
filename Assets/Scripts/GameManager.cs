@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class GameManager : MonoBehaviour
 {
     public int baseHealth = 100;
-    public int heal = 3, damage = 1;
+    public int heal = 8, damage = 2, clickDamage = 4;
     public GameObject cursor;
     public Slider healthSlider;
     public GameObject gameOver;
@@ -46,6 +46,7 @@ public class GameManager : MonoBehaviour
         gameOver.SetActive(false);
 
         spawnController.damage = damage;
+        spawnController.clickDamage = clickDamage;
         spawnController.heal = heal;
     }
 

@@ -16,7 +16,7 @@ public class SpawnController : MonoBehaviour
     public GameObject[] spawnPointList;
     public AnimalController[] animalList;
 
-    [HideInInspector] public int heal, damage;
+    [HideInInspector] public int heal, damage, clickDamage;
 
     private float spawnTime;
     private float scaleRate = 1f;
@@ -60,6 +60,7 @@ public class SpawnController : MonoBehaviour
         if (instance.isEnemy)
         {
             instance.attackDamage = damage;
+            instance.clickDamage = clickDamage;
         }
         else
         {

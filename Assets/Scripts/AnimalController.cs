@@ -1,9 +1,6 @@
 using JetBrains.Annotations;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class AnimalController : MonoBehaviour
 {
@@ -16,15 +13,16 @@ public class AnimalController : MonoBehaviour
     public ParticleSystem particle;
     public bool isEnemy;
     public float attackRate = 1.5f;
-    public int attackDamage = 1, healValue = 1;
+    public int attackDamage = 2, healValue = 8, clickDamage = 4;
     public AudioClip bounceAudio;
+    public AudioClip[] interactionAudioList;
 
     private SpriteRenderer spriteRenderer;
     private Sprite baseSprite;
     private bool canInteract = true;
 
     private GameManager gameManager;
-    private AudioSource audioSource;
+    public AudioSource bounceAS, interactAS;
 
     public void PlayInteraction()
     {
@@ -38,7 +36,6 @@ public class AnimalController : MonoBehaviour
         spriteRenderer = GetComponentInChildren<SpriteRenderer>();
         baseSprite = spriteRenderer.sprite;
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        audioSource = GetComponent<AudioSource>();
     }
 
     private void Start()
@@ -49,8 +46,7 @@ public class AnimalController : MonoBehaviour
 
     private IEnumerator BounceCoroutine()
     {
-        audioSource.clip = bounceAudio;
-        audioSource.Play();
+        bounceAS.PlayOneShot(bounceAudio);
         yield return new WaitForSeconds(1f);
         StartCoroutine(BounceCoroutine());
         yield return null;
@@ -68,9 +64,10 @@ public class AnimalController : MonoBehaviour
     {
         canInteract = false;
         spriteRenderer.sprite = interactionSprite;
+        interactAS.PlayOneShot(interactionAudioList[Random.Range(0, interactionAudioList.Length)], .5f);
         if (isEnemy)
         {
-            gameManager.ChangeHealth(-attackDamage);
+            gameManager.ChangeHealth(-clickDamage);
         }
         else
         {
@@ -93,6 +90,7 @@ public class AnimalController : MonoBehaviour
     {
         yield return new WaitForSeconds(attackRate);
         spriteRenderer.sprite = interactionSprite;
+        interactAS.PlayOneShot(interactionAudioList[Random.Range(0, interactionAudioList.Length)], .5f);
         gameManager.ChangeHealth(-attackDamage);
         yield return new WaitForSeconds(0.5f);
         spriteRenderer.sprite = baseSprite;

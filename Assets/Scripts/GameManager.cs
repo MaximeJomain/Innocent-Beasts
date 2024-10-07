@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,10 +13,12 @@ public class GameManager : MonoBehaviour
     public Slider healthSlider;
     public GameObject gameOver;
     private int health;
+    public TMP_Text timerText;
     
     private Camera cam;
     private Animator cursorAnimator;
     private SpawnController spawnController;
+    private float elapsedTime;
 
     public void ChangeHealth(int value)
     {
@@ -35,6 +38,8 @@ public class GameManager : MonoBehaviour
     {
         Time.timeScale = 1f;
         Cursor.visible = false;
+
+        elapsedTime = 0f;
         
         cam = Camera.main;
         healthSlider.value = baseHealth;
@@ -48,6 +53,14 @@ public class GameManager : MonoBehaviour
     private void Update()
     {
         if (health <= 0) GameOver();
+
+        elapsedTime += Time.deltaTime;
+        
+        // Handle timer
+        int minutes = Mathf.FloorToInt(elapsedTime / 60F);
+        int seconds = Mathf.FloorToInt(elapsedTime - minutes * 60);
+        string formattedTime = string.Format("{0:00}:{1:00}", minutes, seconds);
+        timerText.text = formattedTime;
         
         Vector2 mousePosition = cam.ScreenToWorldPoint(Input.mousePosition);
         cursor.transform.position = mousePosition;

@@ -47,9 +47,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
   animator: {fileID: 0}
   interactionSprite: {fileID: 1809109662, guid: fa239cd9c8cd5e5499f8192ba33dbe13, type: 3}
+  spriteSpeed: 1
+  particle: {fileID: 0}
+  isEnemy: 1
 --- !u!61 &-4500579931892343681
 BoxCollider2D:
   m_ObjectHideFlags: 0

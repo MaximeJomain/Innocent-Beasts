@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3013567948250453317
+--- !u!1 &4707535423136085990
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,55 +8,58 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 8471967959954242848}
-  - component: {fileID: 1925812172990592856}
-  - component: {fileID: 6259540710071293512}
+  - component: {fileID: 690872929772238957}
+  - component: {fileID: 685730069157843468}
+  - component: {fileID: 2762116535259534591}
   m_Layer: 0
-  m_Name: Rabbit
+  m_Name: Bobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &8471967959954242848
+--- !u!4 &690872929772238957
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3013567948250453317}
+  m_GameObject: {fileID: 4707535423136085990}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 6443129229997570919}
+  - {fileID: 3314811438640562638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1925812172990592856
+--- !u!114 &685730069157843468
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3013567948250453317}
+  m_GameObject: {fileID: 4707535423136085990}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a7d89c0bfb768a47b38ef8592d322b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   targetPosition: {x: 0, y: 0, z: 0}
-  speed: 1
+  moveSpeed: 1
   animator: {fileID: 0}
-  interactionSprite: {fileID: -2025581739, guid: 15762e375a7fb8b4caeca4ed0baaa9dd, type: 3}
---- !u!61 &6259540710071293512
+  interactionSprite: {fileID: 92880091, guid: b347e4472ba9020438f7a58a1ad5be58, type: 3}
+  spriteSpeed: 1
+  particle: {fileID: 0}
+  isEnemy: 1
+--- !u!61 &2762116535259534591
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3013567948250453317}
+  m_GameObject: {fileID: 4707535423136085990}
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
@@ -95,7 +98,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!1 &3243087023272661962
+--- !u!1 &7283196835314946736
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,38 +106,38 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6443129229997570919}
-  - component: {fileID: 6935977821991731733}
-  - component: {fileID: 2636432579258585408}
+  - component: {fileID: 3314811438640562638}
+  - component: {fileID: 2601684716761934742}
+  - component: {fileID: 1916815936842140572}
   m_Layer: 0
-  m_Name: 1728249190837_0
+  m_Name: Bobby
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6443129229997570919
+--- !u!4 &3314811438640562638
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243087023272661962}
+  m_GameObject: {fileID: 7283196835314946736}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.5, y: 2.5, z: 2.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8471967959954242848}
+  m_Father: {fileID: 690872929772238957}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &6935977821991731733
+--- !u!212 &2601684716761934742
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243087023272661962}
+  m_GameObject: {fileID: 7283196835314946736}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -169,28 +172,28 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 1403564256, guid: 15762e375a7fb8b4caeca4ed0baaa9dd, type: 3}
+  m_Sprite: {fileID: 1440483499, guid: b347e4472ba9020438f7a58a1ad5be58, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.62, y: 0.64}
+  m_Size: {x: 0.48, y: 0.42}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!95 &2636432579258585408
+--- !u!95 &1916815936842140572
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3243087023272661962}
+  m_GameObject: {fileID: 7283196835314946736}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eb1cd921793ece44fbf8eebf8f6a4bd0, type: 2}
+  m_Controller: {fileID: 9100000, guid: 9f14814b440154347b5c5cc63b0844fc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

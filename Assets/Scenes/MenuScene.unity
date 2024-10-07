@@ -1101,7 +1101,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: ba5e05afd3029594f991f2229d9e9988, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.4
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1323,7 +1323,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 791944697}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: OnCredits
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

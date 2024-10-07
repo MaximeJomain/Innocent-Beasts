@@ -21,4 +21,14 @@ public class MenuController : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void OnCredits()
+    {
+        SceneManager.LoadScene(2);
+    }
+    
+    public void OnMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

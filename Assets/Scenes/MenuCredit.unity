@@ -989,7 +989,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 791944697}
         m_TargetAssemblyTypeName: MenuController, Assembly-CSharp
-        m_MethodName: OnExit
+        m_MethodName: OnMenu
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

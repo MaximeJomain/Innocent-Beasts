@@ -4,16 +4,31 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
+using DG.Tweening;
 
 public class SpawnController : MonoBehaviour
 {
-    public float spawnTime = 5f;
+    public float maxSpawnTime = 5f;
+    public float minSpawnTime = 1f;
+    public float difficultyRate = 5f;
     public GameObject[] spawnPointList;
     public AnimalController[] animalList;
 
+    private float spawnTime;
+
     private void Start()
     {
+        spawnTime = maxSpawnTime;
         StartCoroutine(spawnCoroutine());
+    }
+
+    private void Update()
+    {
+        DOTween.To(() => spawnTime, x => spawnTime = x, minSpawnTime, difficultyRate)
+            .SetEase(Ease.OutSine);
+        // .OnUpdate(() => Debug.Log("spawnTime" + spawnTime));
+
+        // spawnTime = Mathf.Lerp(spawnTime, minSpawnTime, difficultyRate/1000 * Time.deltaTime);
     }
 
     private IEnumerator spawnCoroutine()

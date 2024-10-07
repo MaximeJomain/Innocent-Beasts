@@ -2,13 +2,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class AnimalController : MonoBehaviour
 {
     public Vector3 targetPosition = Vector3.zero;
-    public float speed = 1f;
+    [FormerlySerializedAs("speed")]
+    public float moveSpeed = 1f;
     [HideInInspector] public Animator animator;
     public Sprite interactionSprite;
+    public float spriteSpeed = 1f;
 
     private SpriteRenderer spriteRenderer;
     private Sprite baseSprite;
@@ -28,7 +31,7 @@ public class AnimalController : MonoBehaviour
 
     private void Update()
     {
-        float step = speed * Time.deltaTime;
+        float step = moveSpeed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, targetPosition, step);
 
         if (transform.position == targetPosition) Destroy(gameObject);
@@ -37,7 +40,7 @@ public class AnimalController : MonoBehaviour
     private IEnumerator InteractionCoroutine()
     {
         spriteRenderer.sprite = interactionSprite;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(spriteSpeed);
         spriteRenderer.sprite = baseSprite;
         yield return null;
     }

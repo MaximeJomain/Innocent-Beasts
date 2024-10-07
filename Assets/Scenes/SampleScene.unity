@@ -152,7 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9774e8f0fbe5af84dbf6893c6a514e28, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnTime: 1
+  maxSpawnTime: 5
+  minSpawnTime: 0.2
+  difficultyRate: 60
   spawnPointList:
   - {fileID: 1182081027}
   - {fileID: 1202602795}

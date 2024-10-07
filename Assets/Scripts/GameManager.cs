@@ -32,11 +32,9 @@ public class GameManager : MonoBehaviour
 
             if (hit.collider != null)
             {
-                Debug.Log(hit.collider.name);
                 var animal = hit.collider.GetComponent<AnimalController>();
                 if (animal)
                 {
-                    Debug.Log("ANIMAL");
                     animal.PlayInteraction();
                 }
             }

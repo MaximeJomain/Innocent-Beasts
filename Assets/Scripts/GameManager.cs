@@ -34,6 +34,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         Time.timeScale = 1f;
+        Cursor.visible = false;
         
         cam = Camera.main;
         healthSlider.value = baseHealth;

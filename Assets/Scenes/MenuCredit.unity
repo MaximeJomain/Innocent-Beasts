@@ -763,7 +763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -227, y: 55}
+  m_AnchoredPosition: {x: -229, y: 57}
   m_SizeDelta: {x: 28, y: -36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006552428
@@ -788,8 +788,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "FONTS : \r\n\n- Monster Friend Fore by Monster Friend (on Dafont.com)\r\n-
     Deltarune by Retro Gaming (on Dafont.com)\n\n\nASSETS :\n\n- PIXEL ART : Ambre
-    SAINTOBERT\n- ORIGINAL SOUNDS : Mitsuko, Mika\xEBl GUILLEMAIN\n\n\nDEVELOPMENT
-    :\n\n- Maxime JOMAIN"
+    SAINTOBERT\n- ORIGINAL SOUNDS : Mitsuko, Mika\xEBl GUILLEMAIN\n- MENU THEME made
+    with SUNO\n\n\nDEVELOPMENT :\n\n- Maxime JOMAIN"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d9720cfcdd446cb469fd156f4614be94, type: 2}
   m_sharedMaterial: {fileID: 8123662726234434230, guid: d9720cfcdd446cb469fd156f4614be94, type: 2}
